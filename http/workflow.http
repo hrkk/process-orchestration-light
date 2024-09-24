@@ -1,4 +1,6 @@
-### GET request to example server
-GET http://localhost:8080/workflow/process
+POST http://localhost:8080/workflow/process
+Content-Type: application/json
 
-###
+{
+  "tasks": ["Task1", "Task2", "Task3"]
+}
