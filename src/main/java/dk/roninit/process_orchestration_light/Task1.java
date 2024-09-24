@@ -1,5 +1,8 @@
 package dk.roninit.process_orchestration_light;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Task1 implements Task {
     @Override
     public String getTaskId() {

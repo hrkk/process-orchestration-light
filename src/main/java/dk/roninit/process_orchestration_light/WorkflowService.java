@@ -2,6 +2,7 @@ package dk.roninit.process_orchestration_light;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -11,13 +12,15 @@ public class WorkflowService {
 
     private final Processor processor;
 
-    public WorkflowService() {
+    public WorkflowService(Collection<Task> injectedSpringBeanTasks) {
 
         // Create a map of tasks
-        Map<String, Task> tasks = Map.of(
-                "Task1", new Task1(),
-                "Task2", new Task2()
-        );
+//        Map<String, Task> tasks = Map.of(
+//                "Task1", new Task1(),
+//                "Task2", new Task2()
+//        );
+
+        Map<String, Task> tasks = injectedSpringBeanTasks.stream().collect(Collectors.toMap(Task::getTaskId, v -> v));
         this.processor = new Processor(tasks);
     }
 
@@ -34,7 +37,7 @@ public class WorkflowService {
     }
 
     public static void main(String[] args) {
-        WorkflowService workflowService = new WorkflowService();
+        WorkflowService workflowService = new WorkflowService(null);
         workflowService.processWorkflow();
     }
 }
