@@ -11,11 +11,10 @@ public class WorkflowEndpoint {
 
     private final WorkflowService workflowService;
 
-
     @GetMapping("/workflow/process")
-    public ResponseEntity<String> process() {
-        workflowService.processWorkflow();
-        return ResponseEntity.ok("Process executed");
+    public ResponseEntity<ProcessResult> process() {
+        ProcessResult processResult = workflowService.processWorkflow();
+        return ResponseEntity.ok(processResult);
     }
 
 }

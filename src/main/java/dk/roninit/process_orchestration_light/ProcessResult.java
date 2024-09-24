@@ -5,5 +5,5 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder(toBuilder = true)
-public record ProcessResult(List<TaskResult> taskResults) {
+public record ProcessResult(List<TaskResult> taskResults, ProcessContext context) {
 }

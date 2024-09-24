@@ -20,6 +20,6 @@ public class Processor {
             TaskResult result = task.execute(context);
             taskResults.add(result);
         });
-        return new ProcessResult(taskResults);
+        return new ProcessResult(taskResults, context);
     }
 }

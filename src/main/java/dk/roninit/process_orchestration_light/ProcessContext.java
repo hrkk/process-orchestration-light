@@ -4,8 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.With;
 
-@Builder(toBuilder = true)
-@With
+@Builder
 @Data
 public class ProcessContext {
     private  String data1;

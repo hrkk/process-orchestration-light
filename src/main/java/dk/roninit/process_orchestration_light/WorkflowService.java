@@ -24,7 +24,7 @@ public class WorkflowService {
         this.processor = new Processor(tasks);
     }
 
-    public void processWorkflow() {
+    public ProcessResult processWorkflow() {
         // Process the tasks
         var context = ProcessContext.builder().build();
         ProcessResult processResult = processor.process(context);
@@ -37,6 +37,8 @@ public class WorkflowService {
         });
 
         System.out.println("Context= " + context);
+
+        return processResult;
     }
 
     public static void main(String[] args) {
