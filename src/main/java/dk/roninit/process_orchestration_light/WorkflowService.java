@@ -26,7 +26,8 @@ public class WorkflowService {
 
     public void processWorkflow() {
         // Process the tasks
-        ProcessResult processResult = processor.process();
+        var context = ProcessContext.builder().build();
+        ProcessResult processResult = processor.process(context);
 
         // Print the results
         processResult.taskResults().forEach(taskResult -> {
@@ -34,6 +35,8 @@ public class WorkflowService {
             System.out.println("Task detail: " + taskResult.detail());
             System.out.println();
         });
+
+        System.out.println("Context= " + context);
     }
 
     public static void main(String[] args) {

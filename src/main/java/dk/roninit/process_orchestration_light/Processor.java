@@ -13,11 +13,11 @@ public class Processor {
         this.tasks = Collections.unmodifiableMap(tasks);
     }
 
-    public ProcessResult process() {
+    public ProcessResult process(ProcessContext context) {
         // Process each task
         List<TaskResult> taskResults = new ArrayList<>();
         tasks.values().forEach(task -> {
-            TaskResult result = task.execute();
+            TaskResult result = task.execute(context);
             taskResults.add(result);
         });
         return new ProcessResult(taskResults);

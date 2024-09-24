@@ -11,7 +11,8 @@ public class Task2 implements Task {
 
 
     @Override
-    public TaskResult execute() {
+    public TaskResult execute(ProcessContext context) {
+        context.setData2(getTaskId()+ " data2");
         return TaskResult.builder()
             .detail(getTaskId()+" executed")
             .taskId(getTaskId())

@@ -7,7 +7,7 @@ public interface Task {
 
     String getTaskId();
 
-    default TaskResult execute() {
+    default TaskResult execute(ProcessContext context) {
         return TaskResult.builder()
             .detail("MISSING IMPLEMENTATION")
             .taskId("MISSING IMPLEMENTATION")
